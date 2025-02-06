@@ -1,4 +1,4 @@
-package tutorial;
+package com.KonoLoserDa.BlurrerBot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
