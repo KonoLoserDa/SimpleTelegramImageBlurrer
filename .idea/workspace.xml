@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Changed the path to a professional path" />
+    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Changed git ignore">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -221,7 +224,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738873142764</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changed workspace again">
+      <option name="closed" value="true" />
+      <created>1738873524041</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1738873524041</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changed git ignore">
+      <option name="closed" value="true" />
+      <created>1738873875795</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1738873875795</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -237,6 +256,8 @@
     <MESSAGE value="Added Logs dependencies and updated java" />
     <MESSAGE value="Message sent on right thread now" />
     <MESSAGE value="Changed the path to a professional path" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the path to a professional path" />
+    <MESSAGE value="Changed workspace again" />
+    <MESSAGE value="Changed git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed git ignore" />
   </component>
 </project>
