@@ -197,7 +197,7 @@ public class BlurrerBot extends BasicBot {
             logger.error("Something wrong happened while sending blurred photo", e);
         }
         return null;
-    };
+    }
 
     public InputMediaPhoto blurredMediaPhotoByFileId(String photoFileId){
         InputMediaPhoto inputMediaPhoto = new InputMediaPhoto();
