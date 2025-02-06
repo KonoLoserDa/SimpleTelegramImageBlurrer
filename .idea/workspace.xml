@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="inellijIdea files">
+    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Message sent on right thread now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,24 +29,45 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "searchQuery": "aa",
-      "state": "OPEN",
-      "assignee": "Gr00ze"
+      &quot;searchQuery&quot;: &quot;aa&quot;,
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;Gr00ze&quot;
     }
   ],
-  "lastFilter": {
-    "searchQuery": "aa",
-    "state": "OPEN",
-    "assignee": "Gr00ze"
+  &quot;lastFilter&quot;: {
+    &quot;searchQuery&quot;: &quot;aa&quot;,
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Gr00ze&quot;
   }
-}]]></component>
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDON0d34M6KNs6G&quot;,
+        &quot;number&quot;: 1
+      },
+      &quot;lastSeen&quot;: 1738806370482
+    }
+  ]
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Gr00ze/SimpleTelegramImageBlurrer&quot;,
     &quot;accountId&quot;: &quot;ecc456ba-859a-46b8-b621-02d13b8d1702&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;KonoLoserDa&quot;,
+    &quot;repository&quot;: &quot;SimpleTelegramImageBlurrer&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -61,13 +83,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Maven.SimpleTelegramImageBlurrer [clean].executor": "Run",
     "Maven.SimpleTelegramImageBlurrer [install].executor": "Run",
     "Maven.SimpleTelegramImageBlurrer [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feature",
     "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -160,7 +185,31 @@
       <option name="project" value="LOCAL" />
       <updated>1738802341955</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Generic update">
+      <option name="closed" value="true" />
+      <created>1738805548290</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738805548290</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added Logs dependencies and updated java">
+      <option name="closed" value="true" />
+      <created>1738868727247</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738868727247</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Message sent on right thread now">
+      <option name="closed" value="true" />
+      <created>1738868821552</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738868821552</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -172,6 +221,9 @@
     <MESSAGE value="Renamed to BlurrerBot" />
     <MESSAGE value="Removed unused imports" />
     <MESSAGE value="inellijIdea files" />
-    <option name="LAST_COMMIT_MESSAGE" value="inellijIdea files" />
+    <MESSAGE value="Generic update" />
+    <MESSAGE value="Added Logs dependencies and updated java" />
+    <MESSAGE value="Message sent on right thread now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Message sent on right thread now" />
   </component>
 </project>
