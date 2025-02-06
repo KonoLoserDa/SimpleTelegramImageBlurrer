@@ -1,5 +1,7 @@
-package tutorial;
+package com.KonoLoserDa.BlurrerBot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
@@ -13,6 +15,8 @@ import java.util.*;
 
 
 public class BlurrerBot extends BasicBot {
+    private static final Logger logger = LoggerFactory.getLogger(BlurrerBot.class);
+
     Map<String, ArrayList<Integer>> mediaGroupMessages = new HashMap<>();
     Map<String, ArrayList<String>> mediaGroupPhotos = new HashMap<>();
     Deque<String> mediaGroupIdsQueue = new LinkedList<>();
@@ -20,17 +24,20 @@ public class BlurrerBot extends BasicBot {
 
     public BlurrerBot(String TOKEN) {
         super(TOKEN);
+        logger.info("BlurrerBot Started");
     }
 
 
     @Override
     public void onUpdateReceived(Update update) {
+        logger.info("Update received");
         if (update.hasMessage())
             onMessageReceived(update.getMessage());
     }
 
 
     protected void onMessageReceived(Message message){
+        logger.info("Message Received from {}", message.getFrom().getUserName());
         //Should be private chat
         if(message.isUserMessage()){
             userMessageBehaviour(message);
@@ -42,31 +49,46 @@ public class BlurrerBot extends BasicBot {
 
     }
     private void userMessageBehaviour(Message message) {
+        logger.info("Message is on a private chat");
         String mediaGroupId = message.getMediaGroupId();
         if (message.hasPhoto()) {
             if(mediaGroupId == null){
+                logger.info("It is a single photo");
                 //If the message received is a "photo" type, it'll echo it but blurred
                 //If is only 1 photo it will be sent
-                this.sendPhotoWithSpoiler(message.getChatId().toString(),message.getPhoto());
+                this.sendPhotoWithSpoiler(message.getChatId().toString(),message.getMessageThreadId(),message.getPhoto());
             }else{
-                this.handlePhotoAsMediaGroup(message.getChatId().toString(),mediaGroupId, message.getPhoto());
+                logger.info("It is a photo of a media group");
+                this.handlePhotoAsMediaGroup(message.getChatId().toString(),message.getMessageThreadId(), mediaGroupId, message.getPhoto());
 
 
             }
 
         }else if (message.hasText()) {
+            logger.info("Received text... ignored.");
             SendMessage sendMessage = new SendMessage();            // Create a SendMessage object with mandatory fields
             sendMessage.setChatId(message.getChatId().toString());
             sendMessage.setText("This bot handles only images.");   //  Custom text upon receiving a text message
             try {
                 execute(sendMessage);                               // Call method to send the message
             } catch (TelegramApiException e) {
-                e.printStackTrace();
+                logger.error("Something wrong happened while sending text message", e);
             }
         }
     }
 
-    private void handlePhotoAsMediaGroup(String chatId, String mediaGroupId, List<PhotoSize> photoSizeList) {
+    private void groupMessageBehaviour(Message message) {
+        logger.info("Message is on a group or supergroup chat");
+        //if u reply the photo with bot username it on group chat
+        if(message.hasText() && message.getText().contains(this.getBotUsername()) && message.isReply()){
+            Message replyToMessage = message.getReplyToMessage();
+            if (replyToMessage.hasPhoto())
+                this.sendPhotoWithSpoiler(message.getChatId().toString(), message.getMessageThreadId(), replyToMessage.getPhoto());
+        }
+    }
+
+    private void handlePhotoAsMediaGroup(String chatId, Integer threadId, String mediaGroupId, List<PhotoSize> photoSizeList) {
+        logger.info("Working for media group: {}", mediaGroupId);
         this.mediaGroupIdsQueue.add(mediaGroupId);
         this.mediaGroupMessages.putIfAbsent(mediaGroupId, new ArrayList<>());
         this.mediaGroupPhotos.putIfAbsent(mediaGroupId, new ArrayList<>());
@@ -83,8 +105,9 @@ public class BlurrerBot extends BasicBot {
         ArrayList<String> sentPhotoFileIds = this.mediaGroupPhotos.get(mediaGroupId);
 
         if(toDeleteMessageIDs.isEmpty()){
+            logger.info("This is the first photo for media group: {}", mediaGroupId);
             //The first photo it will be sent
-            Message sentMessage = this.sendPhotoWithSpoiler(chatId,photoSizeList);
+            Message sentMessage = this.sendPhotoWithSpoiler(chatId, threadId, photoSizeList);
             //And it will be saved
             if(sentMessage == null)return;
             //save
@@ -93,6 +116,7 @@ public class BlurrerBot extends BasicBot {
 
         }else{
             //If not the first photo then the first will be deleted, and it will be all sent it again
+            logger.info("Another photo for media group: {}", mediaGroupId);
 
 
 
@@ -110,7 +134,9 @@ public class BlurrerBot extends BasicBot {
             //Make mediagroup
             SendMediaGroup toSendmediaGroup = new SendMediaGroup();
             toSendmediaGroup.setChatId(chatId);
+            toSendmediaGroup.setMessageThreadId(threadId);
             toSendmediaGroup.setMedias(mediaList);
+
 
             //mediaGroup.setProtectContent(true);
             //mandare il mediagroup
@@ -122,29 +148,21 @@ public class BlurrerBot extends BasicBot {
                     toDeleteMessageIDs.add(sentMessage.getMessageId());
                 }
             }catch (TelegramApiException e){
-                e.printStackTrace();
+                logger.error("Something wrong happened while sending media photo", e);
             }
         }
     }
 
 
-    private void groupMessageBehaviour(Message message) {
-        //if u reply the photo with bot username it on group chat
-        if(message.hasText() && message.getText().contains(this.getBotUsername()) && message.isReply()){
-            Message replyToMessage = message.getReplyToMessage();
-            if (replyToMessage.hasPhoto())
-                this.sendPhotoWithSpoiler(message.getChatId().toString(),replyToMessage.getPhoto());
-        }
-    }
 
-    private Message sendPhotoWithSpoiler(String chatId, List<PhotoSize> photos) {
+
+    private Message sendPhotoWithSpoiler(String chatId, Integer threadId, List<PhotoSize> photos) {
         String photoFileId = getPhotoMaxResolutionFileId(photos);
-        return this.sendBlurredPhotoByFileId(chatId,photoFileId);
+        return this.sendBlurredPhotoByFileId(chatId,threadId,photoFileId);
     }
     /**Takes only the largest photo for best quality (usually the last)**/
     private String getPhotoMaxResolutionFileId(List<PhotoSize> photos){
-
-        return photos.get(photos.size() - 1).getFileId();
+        return photos.getLast().getFileId();
     }
 
 
@@ -156,25 +174,29 @@ public class BlurrerBot extends BasicBot {
             try {
                 execute(new DeleteMessage(chatId,toDeleteMessageID));
                 iterator.remove();
+                logger.info("Message {} deleted, for chat id : {}", toDeleteMessageID,chatId);
+
             }catch (TelegramApiException e){
-                e.printStackTrace();
+                logger.error("Something wrong happened while deleting photo", e);
             }
         }
     }
 
 
-    public Message sendBlurredPhotoByFileId(String chatId, String photoFileId){
+    public Message sendBlurredPhotoByFileId(String chatId, Integer threadId, String photoFileId){
+        logger.info("Sending the blurred photo");
         try{
         SendPhoto sendPhoto = new SendPhoto();
         sendPhoto.setChatId(chatId);                            //  Syncs it with the Chat's ID
+        sendPhoto.setMessageThreadId(threadId);
         sendPhoto.setPhoto(new InputFile(photoFileId));         //  Creates the new "photo" file to be sent
         sendPhoto.setHasSpoiler(true);                          //  Sets the .setHasSpoiler(Boolean) tag to true
         return execute(sendPhoto);
         }catch (TelegramApiException e){
-            e.printStackTrace();
+            logger.error("Something wrong happened while sending blurred photo", e);
         }
         return null;
-    };
+    }
 
     public InputMediaPhoto blurredMediaPhotoByFileId(String photoFileId){
         InputMediaPhoto inputMediaPhoto = new InputMediaPhoto();
