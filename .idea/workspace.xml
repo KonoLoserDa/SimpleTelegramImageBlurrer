@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Removed unused imports">
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Gr00ze&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Gr00ze/SimpleTelegramImageBlurrer&quot;,
+    &quot;accountId&quot;: &quot;ecc456ba-859a-46b8-b621-02d13b8d1702&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2sajqbgnVCts0vrDyDTe8fp5M2T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "Maven.SimpleTelegramImageBlurrer [clean].executor": "Run",
+    "Maven.SimpleTelegramImageBlurrer [install].executor": "Run",
+    "Maven.SimpleTelegramImageBlurrer [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="" />
+      <created>1738700771471</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738700771471</updated>
+    </task>
+    <task id="LOCAL-00001" summary="1. Reorganized the code to a more readable version&#10;2. Removed deprecated method&#10;3. Added group chat support">
+      <option name="closed" value="true" />
+      <created>1738711269292</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738711269292</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Version update">
+      <option name="closed" value="true" />
+      <created>1738724178389</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738724178389</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added support for media Groups">
+      <option name="closed" value="true" />
+      <created>1738792068473</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738792068473</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Moved basic functionalities to a new class&#10;Renamed Bot Class">
+      <option name="closed" value="true" />
+      <created>1738798848073</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738798848073</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Intellij cong">
+      <option name="closed" value="true" />
+      <created>1738799938318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738799938318</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Renamed to BlurrerBot">
+      <option name="closed" value="true" />
+      <created>1738799959718</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738799959718</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Renamed to BlurrerBot">
+      <option name="closed" value="true" />
+      <created>1738799978731</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738799978731</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Removed unused imports">
+      <option name="closed" value="true" />
+      <created>1738799994217</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738799994217</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1. Reorganized the code to a more readable version&#10;2. Removed deprecated method&#10;3. Added group chat support" />
+    <MESSAGE value="Version update" />
+    <MESSAGE value="Added support for media Groups" />
+    <MESSAGE value="Moved basic functionalities to a new class&#10;Renamed Bot Class" />
+    <MESSAGE value="Added Intellij cong" />
+    <MESSAGE value="Renamed to BlurrerBot" />
+    <MESSAGE value="Removed unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused imports" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="mediaGroups" language="JAVA" />
+        <watch expression="photoGroups" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
