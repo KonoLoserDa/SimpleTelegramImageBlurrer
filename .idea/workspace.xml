@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Removed unused imports">
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" afterDir="false" />
+    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="inellijIdea files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,7 +57,7 @@
     "Maven.SimpleTelegramImageBlurrer [install].executor": "Run",
     "Maven.SimpleTelegramImageBlurrer [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "feature",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -134,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738799994217</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="inellijIdea files">
+      <option name="closed" value="true" />
+      <created>1738801483650</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738801483650</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,14 +153,7 @@
     <MESSAGE value="Added Intellij cong" />
     <MESSAGE value="Renamed to BlurrerBot" />
     <MESSAGE value="Removed unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused imports" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="mediaGroups" language="JAVA" />
-        <watch expression="photoGroups" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="inellijIdea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="inellijIdea files" />
   </component>
 </project>
