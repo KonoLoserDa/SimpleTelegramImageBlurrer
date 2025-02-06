@@ -162,8 +162,7 @@ public class BlurrerBot extends BasicBot {
     }
     /**Takes only the largest photo for best quality (usually the last)**/
     private String getPhotoMaxResolutionFileId(List<PhotoSize> photos){
-
-        return photos.get(photos.size() - 1).getFileId();
+        return photos.getLast().getFileId();
     }
 
 
