@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Message sent on right thread now">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/BlurrerBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="3ec6e617-1df5-4e90-baf3-a11f258c4985" name="Changes" comment="Changed the path to a professional path" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,21 +77,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Maven.SimpleTelegramImageBlurrer [clean].executor": "Run",
-    "Maven.SimpleTelegramImageBlurrer [install].executor": "Run",
-    "Maven.SimpleTelegramImageBlurrer [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SimpleTelegramImageBlurrer [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SimpleTelegramImageBlurrer [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SimpleTelegramImageBlurrer [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -209,7 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738868821552</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Changed the path to a professional path">
+      <option name="closed" value="true" />
+      <created>1738873098760</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738873098760</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changed the path to a professional path">
+      <option name="closed" value="true" />
+      <created>1738873142764</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738873142764</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -224,6 +236,7 @@
     <MESSAGE value="Generic update" />
     <MESSAGE value="Added Logs dependencies and updated java" />
     <MESSAGE value="Message sent on right thread now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Message sent on right thread now" />
+    <MESSAGE value="Changed the path to a professional path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the path to a professional path" />
   </component>
 </project>
