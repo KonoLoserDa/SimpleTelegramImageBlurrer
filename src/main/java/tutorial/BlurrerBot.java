@@ -1,5 +1,6 @@
 package tutorial;
 
+
 import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
@@ -13,6 +14,8 @@ import java.util.*;
 
 
 public class BlurrerBot extends BasicBot {
+
+
     Map<String, ArrayList<Integer>> mediaGroupMessages = new HashMap<>();
     Map<String, ArrayList<String>> mediaGroupPhotos = new HashMap<>();
     Deque<String> mediaGroupIdsQueue = new LinkedList<>();
@@ -47,9 +50,9 @@ public class BlurrerBot extends BasicBot {
             if(mediaGroupId == null){
                 //If the message received is a "photo" type, it'll echo it but blurred
                 //If is only 1 photo it will be sent
-                this.sendPhotoWithSpoiler(message.getChatId().toString(),message.getPhoto());
+                this.sendPhotoWithSpoiler(message.getChatId().toString(),message.getMessageThreadId(),message.getPhoto());
             }else{
-                this.handlePhotoAsMediaGroup(message.getChatId().toString(),mediaGroupId, message.getPhoto());
+                this.handlePhotoAsMediaGroup(message.getChatId().toString(),message.getMessageThreadId(), mediaGroupId, message.getPhoto());
 
 
             }
@@ -66,7 +69,7 @@ public class BlurrerBot extends BasicBot {
         }
     }
 
-    private void handlePhotoAsMediaGroup(String chatId, String mediaGroupId, List<PhotoSize> photoSizeList) {
+    private void handlePhotoAsMediaGroup(String chatId, Integer threadId, String mediaGroupId, List<PhotoSize> photoSizeList) {
         this.mediaGroupIdsQueue.add(mediaGroupId);
         this.mediaGroupMessages.putIfAbsent(mediaGroupId, new ArrayList<>());
         this.mediaGroupPhotos.putIfAbsent(mediaGroupId, new ArrayList<>());
@@ -84,7 +87,7 @@ public class BlurrerBot extends BasicBot {
 
         if(toDeleteMessageIDs.isEmpty()){
             //The first photo it will be sent
-            Message sentMessage = this.sendPhotoWithSpoiler(chatId,photoSizeList);
+            Message sentMessage = this.sendPhotoWithSpoiler(chatId, threadId, photoSizeList);
             //And it will be saved
             if(sentMessage == null)return;
             //save
@@ -110,7 +113,9 @@ public class BlurrerBot extends BasicBot {
             //Make mediagroup
             SendMediaGroup toSendmediaGroup = new SendMediaGroup();
             toSendmediaGroup.setChatId(chatId);
+            toSendmediaGroup.setMessageThreadId(threadId);
             toSendmediaGroup.setMedias(mediaList);
+
 
             //mediaGroup.setProtectContent(true);
             //mandare il mediagroup
@@ -133,13 +138,13 @@ public class BlurrerBot extends BasicBot {
         if(message.hasText() && message.getText().contains(this.getBotUsername()) && message.isReply()){
             Message replyToMessage = message.getReplyToMessage();
             if (replyToMessage.hasPhoto())
-                this.sendPhotoWithSpoiler(message.getChatId().toString(),replyToMessage.getPhoto());
+                this.sendPhotoWithSpoiler(message.getChatId().toString(), message.getMessageThreadId(), replyToMessage.getPhoto());
         }
     }
 
-    private Message sendPhotoWithSpoiler(String chatId, List<PhotoSize> photos) {
+    private Message sendPhotoWithSpoiler(String chatId, Integer threadId, List<PhotoSize> photos) {
         String photoFileId = getPhotoMaxResolutionFileId(photos);
-        return this.sendBlurredPhotoByFileId(chatId,photoFileId);
+        return this.sendBlurredPhotoByFileId(chatId,threadId,photoFileId);
     }
     /**Takes only the largest photo for best quality (usually the last)**/
     private String getPhotoMaxResolutionFileId(List<PhotoSize> photos){
@@ -163,10 +168,11 @@ public class BlurrerBot extends BasicBot {
     }
 
 
-    public Message sendBlurredPhotoByFileId(String chatId, String photoFileId){
+    public Message sendBlurredPhotoByFileId(String chatId, Integer threadId, String photoFileId){
         try{
         SendPhoto sendPhoto = new SendPhoto();
         sendPhoto.setChatId(chatId);                            //  Syncs it with the Chat's ID
+        sendPhoto.setMessageThreadId(threadId);
         sendPhoto.setPhoto(new InputFile(photoFileId));         //  Creates the new "photo" file to be sent
         sendPhoto.setHasSpoiler(true);                          //  Sets the .setHasSpoiler(Boolean) tag to true
         return execute(sendPhoto);
