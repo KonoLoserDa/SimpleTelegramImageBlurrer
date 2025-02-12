@@ -2,14 +2,20 @@ package com.KonoLoserDa.BlurrerBot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.telegram.telegrambots.meta.api.methods.AnswerInlineQuery;
 import org.telegram.telegrambots.meta.api.methods.send.SendMediaGroup;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.*;
+import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery;
+import org.telegram.telegrambots.meta.api.objects.inlinequery.inputmessagecontent.InputMessageContent;
+import org.telegram.telegrambots.meta.api.objects.inlinequery.inputmessagecontent.InputTextMessageContent;
+import org.telegram.telegrambots.meta.api.objects.inlinequery.result.InlineQueryResultArticle;
 import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
 import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 
 import java.util.*;
 
@@ -20,6 +26,7 @@ public class BlurrerBot extends BasicBot {
     Map<String, ArrayList<Integer>> mediaGroupMessages = new HashMap<>();
     Map<String, ArrayList<String>> mediaGroupPhotos = new HashMap<>();
     Deque<String> mediaGroupIdsQueue = new LinkedList<>();
+    private static Integer uses = 0;
     static final Integer CACHE_SIZE = 10;
 
     public BlurrerBot(String TOKEN) {
@@ -28,14 +35,23 @@ public class BlurrerBot extends BasicBot {
     }
 
 
-    @Override
+    /*@Override
     public void onUpdateReceived(Update update) {
         logger.info("Update received");
         if (update.hasMessage())
             onMessageReceived(update.getMessage());
+    }*/
+
+    public void usesIncrement(){
+        uses++;
     }
-
-
+    public void usesDecrement(){
+        uses--;
+    }
+    public Integer getUses(){
+        return uses;
+    }
+    @Override
     protected void onMessageReceived(Message message){
         logger.info("Message Received from {}", message.getFrom().getUserName());
         //Should be private chat
@@ -48,6 +64,20 @@ public class BlurrerBot extends BasicBot {
         }
 
     }
+
+    @Override
+    protected void onInlineQueryReceived(InlineQuery inlineQuery) {
+        InlineQueryResultArticle article = new InlineQueryResultArticle();
+        article.setId("1");
+        article.setTitle("Test");
+        article.setInputMessageContent(new InputTextMessageContent("Number of uses: "+getUses()));
+        try {
+            this.execute(new AnswerInlineQuery(inlineQuery.getId(), List.of(article))); // Risponde alla query
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void userMessageBehaviour(Message message) {
         logger.info("Message is on a private chat");
         String mediaGroupId = message.getMediaGroupId();
@@ -60,9 +90,8 @@ public class BlurrerBot extends BasicBot {
             }else{
                 logger.info("It is a photo of a media group");
                 this.handlePhotoAsMediaGroup(message.getChatId().toString(),message.getMessageThreadId(), mediaGroupId, message.getPhoto());
-
-
             }
+            this.usesIncrement();
 
         }else if (message.hasText()) {
             logger.info("Received text... ignored.");
@@ -82,8 +111,10 @@ public class BlurrerBot extends BasicBot {
         //if u reply the photo with bot username it on group chat
         if(message.hasText() && message.getText().contains(this.getBotUsername()) && message.isReply()){
             Message replyToMessage = message.getReplyToMessage();
-            if (replyToMessage.hasPhoto())
+            if (replyToMessage.hasPhoto()) {
                 this.sendPhotoWithSpoiler(message.getChatId().toString(), message.getMessageThreadId(), replyToMessage.getPhoto());
+                this.usesIncrement();
+            }
         }
     }
 
@@ -204,6 +235,4 @@ public class BlurrerBot extends BasicBot {
         inputMediaPhoto.setHasSpoiler(true);
         return inputMediaPhoto;
     }
-
-
 }
